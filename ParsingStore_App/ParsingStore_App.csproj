@@ -162,7 +162,8 @@
     <Compile Include="Models\ParsedProduct.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Site.cs" />
-    <Compile Include="ParsingManger.cs" />
+    <Compile Include="ParserManager\ParsingManger.cs" />
+    <Compile Include="ParserManager\ProductShoes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

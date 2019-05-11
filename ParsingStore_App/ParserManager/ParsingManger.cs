@@ -9,6 +9,13 @@ namespace ParsingStore_App
 {
     public class ParsingManger
     {
+        public Product ParsePage(Site site, ParsedProduct parsedProduct)
+        {
+            string HTML = LoadHTMLPage(site);
+            Product resultProduct = GetProduct(HTML, parsedProduct);
+            return resultProduct;
+        }
+
         private string LoadHTMLPage(Site site)
         {                   
                 var result = "";
@@ -49,14 +56,7 @@ namespace ParsingStore_App
             }
             Product resultProduct = new Product { Title = title };
             return resultProduct;
-        }
-
-        public Product ParsePage(Site site, ParsedProduct parsedProduct)
-        {
-            string HTML = LoadHTMLPage(site);
-            Product resultProduct = GetProduct(HTML, parsedProduct);
-            return resultProduct;
-        }       
+        }        
 
         private byte[] imageToByteArray(System.Drawing.Image imageIn)
         {

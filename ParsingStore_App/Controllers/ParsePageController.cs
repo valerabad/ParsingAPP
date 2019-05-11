@@ -12,7 +12,7 @@ namespace ParsingStore_App.Controllers
         // GET: ParsePage
         public ActionResult Index()
         {
-            // как то получаем из флормы значение выбрыннфх пользователем параметров
+            // как то получаем из формы значение выбрынных пользователем параметров
             Site site = null;
             ParsedProduct parsedProduct = null;
 
