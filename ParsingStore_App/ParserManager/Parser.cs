@@ -10,14 +10,14 @@ namespace ParsingStore_App.ParserManager
 {
     public class Parser
     {
-        public Product ParsePage(Site site, ProductShoes parsedProduct)
+        public ParsedProduct ParsePage(Site site, ProductShoes parsedProduct)
         {
             string HTML = LoadHTMLPage(site);
-            Product resultProduct = GetProduct(HTML, parsedProduct);
+            ParsedProduct resultProduct = GetProduct(HTML, parsedProduct);
             return resultProduct;
         }
 
-        private Product GetProduct(string HTML, ProductShoes parsedProduct)
+        private ParsedProduct GetProduct(string HTML, ProductShoes parsedProduct)
         {
             var document = new HtmlDocument();
             document.LoadHtml(HTML);
@@ -30,7 +30,7 @@ namespace ParsingStore_App.ParserManager
                 title = titleProd.GetAttributeValue("title", null);
                 break;
             }
-            Product resultProduct = new Product { Title = title };
+            ParsedProduct resultProduct = new ParsedProduct { Title = title };
             return resultProduct;
         }        
 

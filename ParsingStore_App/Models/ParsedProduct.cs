@@ -9,10 +9,7 @@ namespace ParsingStore_App.Models
     [Table("ParsedProduct")]
     public class ParsedProduct
     {
-        public int Id { get; set; }
-        public int Siteid { get; set; }        
-        public string ProdName { get; set; }
-
+        public int Id { get; set; }                    
         public string Title { get; set; }
         public string Description { get; set; }
         public string Price { get; set; }

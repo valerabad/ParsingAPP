@@ -11,10 +11,10 @@ namespace ParsingStore_App
 {
     public class ParsingManger
     {                
-        public Product GetProducts(Site site, ProductShoes productForParsing)
+        public ParsedProduct GetProducts(Site site, ProductShoes productForParsing)
         {
             Parser parser = new Parser();
-            Product resultProduct = parser.ParsePage(site, productForParsing);
+            ParsedProduct resultProduct = parser.ParsePage(site, productForParsing);
 
             return resultProduct;
         }                
