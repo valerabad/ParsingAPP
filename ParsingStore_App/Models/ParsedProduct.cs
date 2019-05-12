@@ -10,8 +10,8 @@ namespace ParsingStore_App.Models
     public class ParsedProduct
     {
         public int Id { get; set; }
-        public string Siteid { get; set; }
-        public string Prodid { get; set; }
+        public int Siteid { get; set; }        
+        public string ProdName { get; set; }
 
         public string Title { get; set; }
         public string Description { get; set; }
