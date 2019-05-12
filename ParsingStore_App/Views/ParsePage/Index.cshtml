@@ -1,7 +1,23 @@
-﻿
+﻿@model ParsingStore_App.Models.Site
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Parse page</h2>
+
+<p>
+    @Html.DropDownListFor(model => model.Name, ViewBag.Sites as SelectList)   
+</p>
+
+<p>
+@using (Html.BeginForm("ParsingAction", "ParsePage", FormMethod.Post))
+{
+    <button name="action" value="add">Start Parsing</button>
+}
+</p>
+
+<p>
+    @*@Html.DropDownListFor(model => model.Name, ViewBag.ProdName as SelectList)*@
+</p>
 

@@ -214,6 +214,7 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\ParsePage\Index.cshtml" />
+    <Content Include="Views\ParsePage\ParsingAction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

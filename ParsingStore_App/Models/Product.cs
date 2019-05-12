@@ -11,6 +11,9 @@ namespace ParsingStore_App.Models
     {
         public int Id { get; set; }
         public int Siteid { get; set; }
-        public string ProdName { get; set; }                   
+        public string ProdName { get; set; }
+
+        //reference to Product class
+        public Site Site { get; set; }
     }
 }

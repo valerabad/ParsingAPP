@@ -5,22 +5,30 @@ using System.Web;
 using ParsingStore_App.Models;
 using System.Web.Mvc;
 using ParsingStore_App.ParserManager;
+using ParsingStore_App.DAL;
 
 namespace ParsingStore_App.Controllers
 {
     public class ParsePageController : Controller
     {
+        ProductContext dbContext = new ProductContext();
         // GET: ParsePage
         public ActionResult Index()
         {
-            // как то получаем из формы значение выбрынных пользователем параметров
-            Site site = null;
-            ProductShoes parsedProduct = null;
-
-            ParsingManger parsingManager = new ParsingManger();
-            ParsedProduct product = parsingManager.GetProducts(site, parsedProduct);
 
 
+            SelectList sites = new SelectList(dbContext.Site, "Id", "Name");
+            ViewBag.sites  = sites;
+
+            SelectList products = new SelectList(dbContext.Product, "Id", "ProdName");
+            ViewBag.products = products;
+           
+            return View();
+        }
+
+        //[HttpPost]
+        public ActionResult ParsingAction()
+        {
             return View();
         }
     }

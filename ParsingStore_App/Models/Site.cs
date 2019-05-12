@@ -13,6 +13,8 @@ namespace ParsingStore_App.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Url { get; set; }
-        public IEnumerable<SelectListItem> Sites { get; set; }
+
+        //reference to Product class
+        public List<Product> Products { get; set; }
     }
 }
