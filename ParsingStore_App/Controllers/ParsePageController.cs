@@ -18,7 +18,7 @@ namespace ParsingStore_App.Controllers
             ProductShoes parsedProduct = null;
 
             ParsingManger parsingManager = new ParsingManger();
-            Product product = parsingManager.ParsePage(site, parsedProduct);
+            Product product = parsingManager.GetProducts(site, parsedProduct);
 
 
             return View();
