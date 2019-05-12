@@ -1,15 +1,16 @@
 ﻿using HtmlAgilityPack;
 using ParsingStore_App.Models;
+using ParsingStore_App.ParserManager;
 using System.IO;
 using System.Net;
 using System.Text;
-
+using System;
 
 namespace ParsingStore_App
 {
     public class ParsingManger
     {
-        public Product ParsePage(Site site, ParsedProduct parsedProduct)
+        public Product ParsePage(Site site, ProductShoes parsedProduct)
         {
             string HTML = LoadHTMLPage(site);
             Product resultProduct = GetProduct(HTML, parsedProduct);
@@ -41,7 +42,7 @@ namespace ParsingStore_App
                 return result;           
         }
 
-        private Product GetProduct(string HTML, ParsedProduct parsedProduct)
+        private Product GetProduct(string HTML, ProductShoes parsedProduct)
         {
             var document = new HtmlDocument();
             document.LoadHtml(HTML);

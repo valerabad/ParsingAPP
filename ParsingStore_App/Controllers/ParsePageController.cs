@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using ParsingStore_App.Models;
 using System.Web.Mvc;
+using ParsingStore_App.ParserManager;
 
 namespace ParsingStore_App.Controllers
 {
@@ -14,7 +15,7 @@ namespace ParsingStore_App.Controllers
         {
             // как то получаем из формы значение выбрынных пользователем параметров
             Site site = null;
-            ParsedProduct parsedProduct = null;
+            ProductShoes parsedProduct = null;
 
             ParsingManger parsingManager = new ParsingManger();
             Product product = parsingManager.ParsePage(site, parsedProduct);

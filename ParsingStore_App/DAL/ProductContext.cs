@@ -15,8 +15,9 @@ namespace ParsingStore_App.DAL
         {
         }
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Site> Sites { get; set; }                
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Site> Site { get; set; }
+        public DbSet<ParsedProduct> ParsedProduct { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -10,7 +10,7 @@ namespace ParsingStore_App.DAL
         public string GetAllSites()
         {
             // заглушка для теста
-            return "https://badminton.ua/product/category/krossovki-dlya-badmintona/krossovki-fz-forza/";
+            return "";
         }
 
         public Product GetProductbySite(string siteUrl)
@@ -25,10 +25,16 @@ namespace ParsingStore_App.DAL
 
         protected override void Seed(ProductContext context)
         {
-            string selectedSiteUrl = GetAllSites();
-            Product selectedProduct = GetProductbySite(selectedSiteUrl);            
+            Site site1 = new Site() { Name="badminton.ua/Shoes", Url= "https://badminton.ua/product/category/krossovki-dlya-badmintona/krossovki-fz-forza/" };
+            Site site2 = new Site() { Name = "badminton.ua/Rackets", Url = "https://badminton.ua/product/category/raketki/" };
+            context.Site.Add(site1);
+            context.Site.Add(site2);
+            context.SaveChanges();
 
-            SaveProductToDB();
+            string selectedSiteUrl = GetAllSites();
+            Product selectedProduct = GetProductbySite(selectedSiteUrl);
+            
+            //SaveProductToDB();
 
         }
     }
