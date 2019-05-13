@@ -1,7 +1,37 @@
-﻿
+﻿@model ParsingStore_App.Models.Site
+
 @{
     ViewBag.Title = "ParsingAction";
 }
 
-<h2>ParsingAction</h2>
+<h2>Parse page</h2>
+
+<p>    
+</p>
+
+<p>
+@using (Html.BeginForm("ParsingAction", "ParsePage", FormMethod.Post))
+{
+    @Html.EditorFor(model => model.Url)
+
+    @Html.DropDownListFor(model => model.Name, ViewBag.Sites as SelectList, new { @onchange = "CallChangefunc(this.value)" })
+
+    <br>
+    <input type="submit" value="Send" />
+    <br>
+    <button name="action" value="add">Start Parsing</button>
+}
+</p>
+
+<p>
+    @*@Html.DropDownListFor(model => model.Name, ViewBag.ProdName as SelectList)*@
+</p>
+
+<script>
+    function CallChangefunc(value) {
+        $.post('http://localhost:26811/ParsePage/ParsingAction/', { sortBy: value }, function (data) {
+            console.log(data)
+        })
+    }
+</script>
 

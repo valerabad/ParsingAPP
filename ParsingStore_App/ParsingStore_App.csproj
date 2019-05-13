@@ -158,13 +158,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HtmlNodetitleProd.cs" />
     <Compile Include="Models\ParsedProduct.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Site.cs" />
+    <Compile Include="Models\SiteInfo.cs" />
     <Compile Include="ParserManager\Parser.cs" />
     <Compile Include="ParserManager\ParsingManger.cs" />
-    <Compile Include="ParserManager\ProductShoes.cs" />
+    <Compile Include="ProductTemaplates\ProductShoes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -213,8 +213,8 @@
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\ParsePage\Index.cshtml" />
     <Content Include="Views\ParsePage\ParsingAction.cshtml" />
+    <Content Include="Views\ParsePage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -8,16 +8,15 @@ using System;
 
 namespace ParsingStore_App.ParserManager
 {
-    public class Parser
+    static public class Parser
     {
-        public ParsedProduct ParsePage(Site site, ProductShoes parsedProduct)
+        static public string ParsePage(Site site)
         {
-            string HTML = LoadHTMLPage(site);
-            ParsedProduct resultProduct = GetProduct(HTML, parsedProduct);
-            return resultProduct;
+            string HTML = LoadHTMLPage(site);            
+            return HTML;
         }
 
-        private ParsedProduct GetProduct(string HTML, ProductShoes parsedProduct)
+        static public ParsedProduct GetParsedProduct(string HTML, ProductShoes parsedProduct)
         {
             var document = new HtmlDocument();
             document.LoadHtml(HTML);
@@ -32,9 +31,9 @@ namespace ParsingStore_App.ParserManager
             }
             ParsedProduct resultProduct = new ParsedProduct { Title = title };
             return resultProduct;
-        }        
+        }
 
-        private string LoadHTMLPage(Site site)
+        static private string LoadHTMLPage(Site site)
         {
             var result = "";
             var request = (HttpWebRequest)WebRequest.Create(site.Url); // URL
@@ -59,7 +58,7 @@ namespace ParsingStore_App.ParserManager
             return result;
         }
 
-        private byte[] imageToByteArray(System.Drawing.Image imageIn)
+        static private byte[] imageToByteArray(System.Drawing.Image imageIn)
         {
             MemoryStream ms = new MemoryStream();
             imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);

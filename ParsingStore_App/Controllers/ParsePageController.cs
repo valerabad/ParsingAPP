@@ -6,6 +6,7 @@ using ParsingStore_App.Models;
 using System.Web.Mvc;
 using ParsingStore_App.ParserManager;
 using ParsingStore_App.DAL;
+using System.Net;
 
 namespace ParsingStore_App.Controllers
 {
@@ -13,23 +14,37 @@ namespace ParsingStore_App.Controllers
     {
         ProductContext dbContext = new ProductContext();
         // GET: ParsePage
-        public ActionResult Index()
+        //public ActionResult Index()
+        public ActionResult ParsingAction()
         {
-
-
+            int id = 1;
             SelectList sites = new SelectList(dbContext.Site, "Id", "Name");
             ViewBag.sites  = sites;
 
-            SelectList products = new SelectList(dbContext.Product, "Id", "ProdName");
-            ViewBag.products = products;
-           
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Site site_ = dbContext.Site.Find(id);
+            if (site_ == null)
+            {
+                return HttpNotFound();
+            }
+            return View(site_);
+
+            //SelectList products = new SelectList(dbContext.Product, "Id", "ProdName");
+            //ViewBag.products = products;
+
+            //return View();
         }
 
-        //[HttpPost]
-        public ActionResult ParsingAction()
+        [HttpPost]
+        public ActionResult ParsingAction(Site site)
         {
-            return View();
+            string SelectedValue = site.Name;
+            return View(site);
+            //Request.Form["ddlVendor"].ToString();
+            //return View();
         }
     }
 }

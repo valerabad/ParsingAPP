@@ -13,8 +13,8 @@ namespace ParsingStore_App
     {                
         public ParsedProduct GetProducts(Site site, ProductShoes productForParsing)
         {
-            Parser parser = new Parser();
-            ParsedProduct resultProduct = parser.ParsePage(site, productForParsing);
+            string HTMLPage = Parser.ParsePage(site);
+            ParsedProduct resultProduct = Parser.GetParsedProduct(HTMLPage, productForParsing);           
 
             return resultProduct;
         }                
