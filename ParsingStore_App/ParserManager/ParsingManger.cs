@@ -13,7 +13,7 @@ namespace ParsingStore_App
     {                
         public ParsedProduct GetProducts(Site site, IProductXPath productForParsing)
         {
-            string HTMLPage = Parser.ParsePage(site);
+            string HTMLPage = HttpService.LoadHTMLPage(site);
             ParsedProduct resultProduct = Parser.GetParsedProduct(HTMLPage, productForParsing);           
 
             return resultProduct;

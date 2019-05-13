@@ -9,13 +9,7 @@ using System;
 namespace ParsingStore_App.ParserManager
 {
     static public class Parser
-    {
-        static public string ParsePage(Site site)
-        {
-            string HTML = LoadHTMLPage(site);            
-            return HTML;
-        }
-
+    {        
         static public ParsedProduct GetParsedProduct(string HTML, IProductXPath parsedProduct)
         {
             var document = new HtmlDocument();
@@ -32,32 +26,7 @@ namespace ParsingStore_App.ParserManager
             ParsedProduct resultProduct = new ParsedProduct { Title = title };
             return resultProduct;
         }
-
-        static private string LoadHTMLPage(Site site)
-        {
-            var result = "";
-            var request = (HttpWebRequest)WebRequest.Create(site.Url); // URL
-            var response = (HttpWebResponse)request.GetResponse();
-
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                var receiveStream = response.GetResponseStream();
-                if (receiveStream != null)
-                {
-                    StreamReader readStream;
-                    if (response.CharacterSet == null)
-                        readStream = new StreamReader(receiveStream);
-
-                    else
-                        readStream = new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet));
-                    result = readStream.ReadToEnd();
-                    readStream.Close();
-                }
-                response.Close();
-            }
-            return result;
-        }
-
+        
         static private byte[] imageToByteArray(System.Drawing.Image imageIn)
         {
             MemoryStream ms = new MemoryStream();

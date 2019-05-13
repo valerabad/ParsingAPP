@@ -162,6 +162,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Site.cs" />
     <Compile Include="Models\SiteInfo.cs" />
+    <Compile Include="ParserManager\HttpService.cs" />
     <Compile Include="ParserManager\Parser.cs" />
     <Compile Include="ParserManager\ParsingManger.cs" />
     <Compile Include="ProductTemaplates\PC.cs" />
