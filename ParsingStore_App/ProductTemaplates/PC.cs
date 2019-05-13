@@ -6,12 +6,12 @@ using System.Web;
 
 namespace ParsingStore_App.ProductTemaplates
 {
-    public class PC : IProducXPath
+    public class PC : IProductXPath
     {
-        public string TargetProduct { get; set; }
-        public string TitleXPath { get; set; }
-        public string PriseXPath { get; set; }
-        public string DescriptionXPath { get; set; }
-        public string ImageXPath { get; set; }
+        public string TargetProduct { get; } = "PC";
+        public string TitleXPath { get; } = "";
+        public string PriseXPath { get; } = "";
+        public string DescriptionXPath { get; } = "";
+        public string ImageXPath { get; } = "";
     }
 }

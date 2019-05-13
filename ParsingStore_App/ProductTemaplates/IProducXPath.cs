@@ -5,12 +5,12 @@ using System.Web;
 
 namespace ParsingStore_App.ParserManager
 {
-    public interface IProducXPath
+    public interface IProductXPath
     {
-        string TargetProduct { get; set; }
-        string TitleXPath { get; set; } 
-        string PriseXPath { get; set; } 
-        string DescriptionXPath { get; set; } 
-        string ImageXPath { get; set; }
+        string TargetProduct { get; }
+        string TitleXPath { get; } 
+        string PriseXPath { get; } 
+        string DescriptionXPath { get; } 
+        string ImageXPath { get; }
     }
 }

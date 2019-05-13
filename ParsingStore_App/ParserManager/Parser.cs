@@ -16,14 +16,14 @@ namespace ParsingStore_App.ParserManager
             return HTML;
         }
 
-        static public ParsedProduct GetParsedProduct(string HTML, IProducXPath parsedProduct)
+        static public ParsedProduct GetParsedProduct(string HTML, IProductXPath parsedProduct)
         {
             var document = new HtmlDocument();
             document.LoadHtml(HTML);
             string title = null;
 
-            // parse product title
-            HtmlNodeCollection titleNodes = document.DocumentNode.SelectNodes(parsedProduct.TitleXPath); //     ".//h3[@class='content-product__name-heading']/a"
+            // parse product title            
+            HtmlNodeCollection titleNodes = document.DocumentNode.SelectNodes(parsedProduct.TitleXPath); //".//h3[@class='content-product__name-heading']/a"
             foreach (HtmlNode titleProd in titleNodes)
             {
                 title = titleProd.GetAttributeValue("title", null);
