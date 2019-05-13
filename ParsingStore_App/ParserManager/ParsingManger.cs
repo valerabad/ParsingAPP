@@ -11,7 +11,7 @@ namespace ParsingStore_App
 {
     public class ParsingManger
     {                
-        public ParsedProduct GetProducts(Site site, ProductShoes productForParsing)
+        public ParsedProduct GetProducts(Site site, IProducXPath productForParsing)
         {
             string HTMLPage = Parser.ParsePage(site);
             ParsedProduct resultProduct = Parser.GetParsedProduct(HTMLPage, productForParsing);           

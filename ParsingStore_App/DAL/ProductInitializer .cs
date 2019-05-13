@@ -16,8 +16,8 @@ namespace ParsingStore_App.DAL
             context.Site.Add(site2);
             context.SaveChanges();
 
-            Product product1 = new Product() { ProdName = "bambinton.ua/shoes", Siteid = 1 };
-            Product product2 = new Product() { ProdName = "bambinton.ua/rackets", Siteid = 1 };
+            Product product1 = new Product() { ProdName = "badminton.ua/shoes", Siteid = 1 };
+            Product product2 = new Product() { ProdName = "badminton.ua/rackets", Siteid = 1 };
             Product product3 = new Product() { ProdName = "allo.ua/mobile", Siteid = 2 };
             Product product4 = new Product() { ProdName = "allo.ua/pc", Siteid = 2 };
             context.Product.Add(product1);

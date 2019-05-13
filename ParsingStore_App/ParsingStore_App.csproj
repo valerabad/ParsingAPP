@@ -164,7 +164,10 @@
     <Compile Include="Models\SiteInfo.cs" />
     <Compile Include="ParserManager\Parser.cs" />
     <Compile Include="ParserManager\ParsingManger.cs" />
-    <Compile Include="ProductTemaplates\ProductShoes.cs" />
+    <Compile Include="ProductTemaplates\PC.cs" />
+    <Compile Include="ProductTemaplates\Phones.cs" />
+    <Compile Include="ProductTemaplates\IProducXPath.cs" />
+    <Compile Include="ProductTemaplates\Shoes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

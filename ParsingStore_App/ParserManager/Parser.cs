@@ -16,7 +16,7 @@ namespace ParsingStore_App.ParserManager
             return HTML;
         }
 
-        static public ParsedProduct GetParsedProduct(string HTML, ProductShoes parsedProduct)
+        static public ParsedProduct GetParsedProduct(string HTML, IProducXPath parsedProduct)
         {
             var document = new HtmlDocument();
             document.LoadHtml(HTML);
