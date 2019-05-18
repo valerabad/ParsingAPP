@@ -155,6 +155,7 @@
     <Compile Include="Controllers\ParsePageController.cs" />
     <Compile Include="DAL\ProductContext.cs" />
     <Compile Include="DAL\ProductInitializer .cs" />
+    <Compile Include="DAL\ViewModelSiteProduct.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -194,6 +195,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="ExamplesCode.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -219,6 +221,7 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\ParsePage\ParsingAction.cshtml" />
     <Content Include="Views\ParsePage\Index.cshtml" />
+    <Content Include="Views\ParsePage\GetProductForParsing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

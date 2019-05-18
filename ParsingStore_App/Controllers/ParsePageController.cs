@@ -46,5 +46,79 @@ namespace ParsingStore_App.Controllers
             //Request.Form["ddlVendor"].ToString();
             //return View();
         }
+
+        [HttpGet]
+        public ActionResult GetProductForParsing()
+        {
+            ViewModelSiteProduct model = new ViewModelSiteProduct();
+            model.allSites = new Site();
+            model.allSites.Sites = PopulateSites();
+            model.allProducts = new Product();
+            model.allProducts.Products = new List<SelectListItem>() { new SelectListItem
+                {
+                    Text = "choose site",
+                    Value = "choose site"
+                } };
+            //ViewModelSiteProduct vmDemo = new ViewModelSiteProduct();
+            //vmDemo.allProducts = dbContext.Product.ToList();
+            //vmDemo.allSites = dbContext.Site.ToList();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult GetProductForParsing(ViewModelSiteProduct site)
+        {           
+            site.allSites.Sites = PopulateSites();
+            var selectedItem = site.allSites.Sites.Find(x=>x.Value==site.allSites.Id.ToString());
+            var v1 = selectedItem.Text;
+
+            List<Product> reesProd = dbContext.Product.ToList().FindAll(x => x.Siteid.ToString() == selectedItem.Value);
+
+            site.allProducts.Products = PopulateProducts(selectedItem.Value);
+
+            //var enabledProducts = site.allProducts.Products.Find(x => x.Value == site.allSites.Id.ToString());
+
+            return View(site);
+        }
+
+        [HttpPost]    
+        public void GetParsedProduct(ViewModelSiteProduct site)
+        {
+            // View(site); 
+        }
+
+
+        private List<SelectListItem> PopulateProducts(string siteID)
+        {
+            List<SelectListItem> items = new List<SelectListItem>();            
+            List<Product> reesProd = dbContext.Product.ToList().FindAll(x => x.Siteid.ToString() == siteID);
+            foreach (var item in reesProd)
+            {
+                items.Add(new SelectListItem
+                {
+                    Text = item.ProdName,
+                    Value = item.Id.ToString()
+                });
+            }
+
+            return items;
+        }
+
+        private  List<SelectListItem> PopulateSites()
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            List<Site> lst = dbContext.Site.ToList();
+            foreach (var item in lst)
+            {
+                items.Add(new SelectListItem
+                {
+                    Text = item.Name,
+                    Value = item.Id.ToString()
+                });
+            }
+
+            return items;
+        }
     }
-}
+}   

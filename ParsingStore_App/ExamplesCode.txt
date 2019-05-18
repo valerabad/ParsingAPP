@@ -1,0 +1,19 @@
+﻿@*<div class="row">
+        <h3>Choose site and product:</h3>
+        <div class="col-md-4">
+            <select>
+                @foreach (var item in Model.allSites)
+                {
+                    <option>@item.Url</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4">
+            <select>
+                @foreach (var item in Model.allProducts)
+                {
+                    <option>@item.ProdName</option>
+                }
+            </select>
+        </div>
+    </div>*@

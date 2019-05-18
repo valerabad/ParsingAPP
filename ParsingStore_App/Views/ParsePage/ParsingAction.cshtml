@@ -1,5 +1,6 @@
 ﻿@model ParsingStore_App.Models.Site
 
+
 @{
     ViewBag.Title = "ParsingAction";
 }
@@ -12,7 +13,7 @@
 <p>
 @using (Html.BeginForm("ParsingAction", "ParsePage", FormMethod.Post))
 {
-    @Html.EditorFor(model => model.Url)
+    @Html.EditorFor(model => model.Sites.Url)
 
     @Html.DropDownListFor(model => model.Name, ViewBag.Sites as SelectList, new { @onchange = "CallChangefunc(this.value)" })
 

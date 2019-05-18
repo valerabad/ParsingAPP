@@ -1,0 +1,37 @@
+﻿@*@model ParsingStore_App.Models.Site*@
+@model ParsingStore_App.DAL.ViewModelSiteProduct
+
+@{
+    ViewBag.Title = "GetProductForParsing";
+}
+
+<h2>Choose site for parsing</h2>
+
+@using (Html.BeginForm("GetProductForParsing", "ParsePage", FormMethod.Post))
+{
+    @Html.AntiForgeryToken();    
+
+    @Html.DropDownListFor(Model => Model.allSites.Id, Model.allSites.Sites) 
+    //new { @onchange = "CallChangefunc(this.value)" }
+    @Html.DropDownListFor(Model => Model.allProducts.Id, Model.allProducts.Products)
+    <br>
+    <br>
+    <input type="submit" value="Get enabled products" />
+}
+
+@using (Html.BeginForm("GetParsedProduct", "ParsePage", FormMethod.Post))
+{  
+    <br>
+    <input type="submit" value="Start parsing" />
+}
+
+<script>
+    function CallChangefunc(value) {
+        $.post('http://localhost:26811/ParsePage/GetProductForParsing/', { sortBy: value }, function (data) {
+            console.log(data)
+        })
+    }
+</script>
+
+  
+  

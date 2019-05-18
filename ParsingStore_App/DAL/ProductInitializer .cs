@@ -22,6 +22,8 @@ namespace ParsingStore_App.DAL
             Product product4 = new Product() { ProdName = "allo.ua/pc", Siteid = 2 };
             context.Product.Add(product1);
             context.Product.Add(product2);
+            context.Product.Add(product3);
+            context.Product.Add(product4);
 
             context.SaveChanges();
 
