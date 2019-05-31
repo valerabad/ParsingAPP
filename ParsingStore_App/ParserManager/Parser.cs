@@ -5,13 +5,15 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System;
+using System.Collections.Generic;
 
 namespace ParsingStore_App.ParserManager
 {
     static public class Parser
     {        
-        static public ParsedProduct GetParsedProduct(string HTML, IProductXPath parsedProduct)
+        static public List<ParsedProduct> GetParsedProduct(string HTML, IProductXPath parsedProduct)
         {
+            List<ParsedProduct> parsedProductList = new List<ParsedProduct>();
             var document = new HtmlDocument();
             document.LoadHtml(HTML);
             string title = null;
@@ -21,10 +23,11 @@ namespace ParsingStore_App.ParserManager
             foreach (HtmlNode titleProd in titleNodes)
             {
                 title = titleProd.GetAttributeValue("title", null);
-                break;
+                ParsedProduct resultProduct = new ParsedProduct { Title = title };
+                parsedProductList.Add(resultProduct);
             }
-            ParsedProduct resultProduct = new ParsedProduct { Title = title };
-            return resultProduct;
+            
+            return parsedProductList;
         }
         
         static private byte[] imageToByteArray(System.Drawing.Image imageIn)

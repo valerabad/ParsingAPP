@@ -13,7 +13,6 @@ namespace ParsingStore_App.Models
         public int Id { get; set; }
         public int Siteid { get; set; }
         public string ProdName { get; set; }
-
         [NotMapped]
         public List<SelectListItem> Products { get; set; }
 

@@ -10,10 +10,12 @@ namespace ParsingStore_App.DAL
         protected override void Seed(ProductContext context)
         {
             Site site1 = new Site() { Name="badminton.ua", Url= "https://badminton.ua/product/category/krossovki-dlya-badmintona/krossovki-fz-forza/" };
-            Site site2 = new Site() { Name = "allo.ua", Url = "https://allo.ua/ru/products/mobile/proizvoditel-xiaomi/" };           
+            Site site2 = new Site() { Name = "allo.ua", Url = "https://allo.ua/ru/products/mobile/proizvoditel-xiaomi/" };
+            Site site3 = new Site() { Name = "rozetka.ua", Url = "https://allo.ua/ru/products/mobile/proizvoditel-xiaomi/" };
 
             context.Site.Add(site1);
             context.Site.Add(site2);
+            context.Site.Add(site3);
             context.SaveChanges();
 
             Product product1 = new Product() { ProdName = "badminton.ua/shoes", Siteid = 1 };
@@ -25,6 +27,11 @@ namespace ParsingStore_App.DAL
             context.Product.Add(product3);
             context.Product.Add(product4);
 
+            context.SaveChanges();
+
+            ParsedProduct pp = new ParsedProduct() { Description = "test1", Price = "test", Title = "testPorduct" };
+
+            context.ParsedProduct.Add(pp);
             context.SaveChanges();
 
         }

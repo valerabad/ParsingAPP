@@ -222,6 +222,9 @@
     <Content Include="Views\ParsePage\ParsingAction.cshtml" />
     <Content Include="Views\ParsePage\Index.cshtml" />
     <Content Include="Views\ParsePage\GetProductForParsing.cshtml" />
+    <Content Include="Views\ParsePage\GetParsedProduct.cshtml" />
+    <Content Include="Views\ParsePage\Parse.cshtml" />
+    <Content Include="Views\ParsePage\ParsedProductTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

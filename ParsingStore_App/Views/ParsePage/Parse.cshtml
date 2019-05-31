@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Parse";
+}
+
+<h2>Parse</h2>
+@using (Html.BeginForm("Parse", "ParsePage", FormMethod.Post))
+    {
+            <table>
+                <tr>
+                    <td> Choose parsing parameters </td>                    
+                    </tr>
+                <tr>
+                    <td>
+                        <br>
+
+                        @Html.DropDownList("SitesList", (IEnumerable
+                                            <SelectListItem>)ViewBag.SitesList)
+                        @*, new { onchange = "form.submit();" }*@
+
+                        @*, new
+                        {
+                        onchange = "CallChangefunc(this.value);"
+                        }*@
+                    </td>
+
+                    <td>
+                        <br>
+                        @Html.DropDownList("ProductsList", (IEnumerable
+                        <SelectListItem>)ViewBag.ProductsList)
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <input type="submit" value="Submit" />
+}
+<script>
+    function CallChangefunc(value) {
+        $.post('http://localhost:26811/ParsePage/Parse/', { ProductsList: value }, function (data) {
+            console.log(data)
+        })
+    }
+</script>

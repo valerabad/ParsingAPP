@@ -16,6 +16,9 @@
     @Html.DropDownListFor(Model => Model.allProducts.Id, Model.allProducts.Products)
     <br>
     <br>
+    @*@Html.DropDownListFor(Model => Model.allSites.Id, new SelectList(Model.allSites.Sites, "Id", "Name"));*@
+    <br>
+
     <input type="submit" value="Get enabled products" />
 }
 

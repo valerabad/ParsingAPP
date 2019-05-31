@@ -14,8 +14,7 @@ namespace ParsingStore_App.Models
         public string Name { get; set; }
         public string Url { get; set; }
         [NotMapped]
-        public List<SelectListItem> Sites { get; set; }
-        //[NotMapped]        
+        public List<SelectListItem> Sites { get; set; }               
         //reference to Product class
         public List<Product> Products { get; set; }
     }
