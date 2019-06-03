@@ -195,5 +195,21 @@ namespace ParsingStore_App.Controllers
         {
             return View(dbContext.ParsedProduct.ToList());
         }
+
+        [HttpGet]
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ParsedProduct product = dbContext.ParsedProduct.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
+
     }
 }
